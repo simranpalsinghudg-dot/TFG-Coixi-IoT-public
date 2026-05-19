@@ -14,14 +14,14 @@ from boto3.dynamodb.conditions import Key, Attr
 # ==========================================
 # 1. CONFIGURACIÓ AWS
 # ==========================================
-ENDPOINT  = "a3w35veduf1p9-ats.iot.eu-north-1.amazonaws.com"
-CA_PATH   = "AmazonRootCA1.pem"
-CERT_PATH = "306dce26e528b14a881c78af0efcd0e046210e610dd09541fa2e5604d2a26b35-certificate.pem.crt"
-KEY_PATH  = "306dce26e528b14a881c78af0efcd0e046210e610dd09541fa2e5604d2a26b35-private.pem.key"
+ENDPOINT = "[endpoint AWS IoT]"
+CA_PATH = "[certificat arrel AWS]"
+CERT_PATH = "[certificat del dispositiu]"
+KEY_PATH = "[clau privada del dispositiu]"
 
-dynamodb       = boto3.resource('dynamodb', region_name='us-east-1')
-taula_sessions = dynamodb.Table('SessionsCoixi')
-taula_usuaris  = dynamodb.Table('Usuaris_Coixi')
+dynamodb = boto3.resource('dynamodb', region_name='[regio AWS]')
+taula_sessions = dynamodb.Table('[taula de sessions]')
+taula_usuaris = dynamodb.Table('[taula d’usuaris]')
 
 dades_globals     = np.zeros((24, 24))
 smooth_globals    = np.zeros((24, 24))
@@ -34,7 +34,7 @@ mode_global = -1
 # ==========================================
 # 2. MQTT
 # ==========================================
-mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, client_id="Python_TFG_Final")
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, client_id="[client MQTT]")
 mqtt_client.tls_set(CA_PATH, certfile=CERT_PATH, keyfile=KEY_PATH,
                     cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2)
 
