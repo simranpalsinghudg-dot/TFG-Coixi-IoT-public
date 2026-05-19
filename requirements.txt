@@ -1,0 +1,8 @@
+dash
+plotly
+numpy
+paho-mqtt
+boto3
+pandas
+openpyxl
+gunicorn
